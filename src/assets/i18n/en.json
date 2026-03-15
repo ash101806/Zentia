@@ -1,0 +1,83 @@
+{
+  "TEST": {
+    "TITLE": "History Midterm",
+    "DESC": "Midterm covering chapters 1-5",
+    "LOADING": "Loading your test...",
+    "SUCCESS": "Test Submitted Successfully!",
+    "SUCCESS_SUBTEXT": "Your answers have been recorded.",
+    "AUTO_SUBMIT_ALERT": "Time's up! Your test is being automatically submitted."
+  },
+  "NAV": {
+    "HOME": "Home",
+    "QUESTION_DESIGNER": "Question Designer",
+    "TEST_DESIGNER": "Test Designer",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "FINISH": "Finish & Submit",
+    "QUESTION_X_OF_Y": "Question {{current}} of {{total}}",
+    "LOGIN": "Log In"
+  },
+  "FLAGS": {
+    "MARK_REVIEW": "Mark to Review Later",
+    "MARKED": "Marked for Review"
+  },
+  "MODAL": {
+    "TITLE": "Submit Test?",
+    "ANSWERED": "Answered:",
+    "UNANSWERED": "Unanswered:",
+    "WARNING": "Are you sure you want to submit your test? You will not be able to change your answers after submission.",
+    "CONTINUE": "Continue Test",
+    "SUBMIT": "Submit Test"
+  },
+  "CONNECT_DOTS": {
+    "ITEMS": "Items",
+    "MATCHES": "Matches",
+    "CURRENT": "Current Connections"
+  },
+  "OPEN_QUESTION": {
+    "LABEL": "Your answer"
+  },
+  "DESIGNER": {
+    "Q_TITLE": "Question Designer",
+    "Q_SUBTITLE": "Create engaging questions for your students",
+    "COURSE": "Course",
+    "TOPIC": "Topic",
+    "Q_TYPE": "Question Type",
+    "TYPE_ANY": "Any Type",
+    "TYPE_MC": "Multiple Choice",
+    "TYPE_OPEN": "Open Question",
+    "TYPE_CONNECT": "Connect the Dots",
+    "PROMPT_LABEL": "Question Prompt / Text",
+    "PROMPT_PLACEHOLDER": "e.g. What is the capital of France?",
+    "IMAGE_LABEL": "Reference Image URL (Optional)",
+    "MARKDOWN_LABEL": "Markdown Content (Optional, e.g. code blocks, math)",
+    "PREVIEW": "Preview:",
+    "OPTIONS": "Options",
+    "OPTION_N": "Option {{n}}",
+    "ADD_OPTION": "Add Option",
+    "PAIRS": "Pairs (Left and Right matching)",
+    "LEFT_ITEM_N": "Left Item {{n}}",
+    "RIGHT_ITEM_N": "Right Item {{n}}",
+    "ADD_PAIR": "Add Pair",
+    "OPEN_INFO": "Students will be provided a text box to write their answer. No extra configuration needed.",
+    "SAVE": "Save Question",
+    "SAVE_SUCCESS": "Question saved successfully!",
+    "SAVE_ERROR": "Error saving question."
+  },
+  "TEST_DESIGNER": {
+    "TITLE": "Test Designer",
+    "SUBTITLE": "Design the blueprint rules for a new student exam",
+    "TEST_TITLE": "Test Title",
+    "TEST_TITLE_PH": "e.g. History Midterm 2026",
+    "DESC": "Description",
+    "DESC_PH": "Midterm exam covering chapters 1-5",
+    "RULES_HEADER": "Blueprint Rules",
+    "RULES_SUB": "Configure how the backend should generate the exam questions for students.",
+    "TOPIC_OPTIONAL": "Topic (Optional)",
+    "COUNT": "Count",
+    "ADD_RULE": "Add Rule",
+    "SAVE": "Save Test Blueprint",
+    "SAVE_SUCCESS": "Test Blueprint saved successfully!",
+    "SAVE_ERROR": "Error saving blueprint."
+  }
+}

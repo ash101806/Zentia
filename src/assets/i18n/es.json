@@ -1,0 +1,83 @@
+{
+  "TEST": {
+    "TITLE": "Examen Parcial de Historia",
+    "DESC": "Examen parcial que cubre los capítulos 1-5",
+    "LOADING": "Cargando tu examen...",
+    "SUCCESS": "¡Examen enviado exitosamente!",
+    "SUCCESS_SUBTEXT": "Tus respuestas han sido registradas.",
+    "AUTO_SUBMIT_ALERT": "¡Se acabó el tiempo! Tu examen se enviará automáticamente."
+  },
+  "NAV": {
+    "HOME": "Inicio",
+    "QUESTION_DESIGNER": "Diseñador de Preguntas",
+    "TEST_DESIGNER": "Diseñador de Exámenes",
+    "PREVIOUS": "Anterior",
+    "NEXT": "Siguiente",
+    "FINISH": "Terminar y Enviar",
+    "QUESTION_X_OF_Y": "Pregunta {{current}} de {{total}}",
+    "LOGIN": "Iniciar Sesión"
+  },
+  "FLAGS": {
+    "MARK_REVIEW": "Marcar para revisar luego",
+    "MARKED": "Marcada para revisión"
+  },
+  "MODAL": {
+    "TITLE": "¿Enviar examen?",
+    "ANSWERED": "Respondidas:",
+    "UNANSWERED": "Sin responder:",
+    "WARNING": "¿Estás seguro que deseas enviar el examen? No podrás cambiar tus respuestas después del envío.",
+    "CONTINUE": "Continuar Examen",
+    "SUBMIT": "Enviar Examen"
+  },
+  "CONNECT_DOTS": {
+    "ITEMS": "Elementos",
+    "MATCHES": "Pares",
+    "CURRENT": "Conexiones actuales"
+  },
+  "OPEN_QUESTION": {
+    "LABEL": "Tu respuesta"
+  },
+  "DESIGNER": {
+    "Q_TITLE": "Diseñador de Preguntas",
+    "Q_SUBTITLE": "Crea preguntas atractivas para tus estudiantes",
+    "COURSE": "Curso",
+    "TOPIC": "Tema",
+    "Q_TYPE": "Tipo de Pregunta",
+    "TYPE_ANY": "Cualquier Tipo",
+    "TYPE_MC": "Opción Múltiple",
+    "TYPE_OPEN": "Pregunta Abierta",
+    "TYPE_CONNECT": "Conectar Puntos",
+    "PROMPT_LABEL": "Enunciado de la Pregunta",
+    "PROMPT_PLACEHOLDER": "ej. ¿Cuál es la capital de Francia?",
+    "IMAGE_LABEL": "URL de Imagen de Referencia (Opcional)",
+    "MARKDOWN_LABEL": "Contenido Markdown (Opcional, ej. código, matemáticas)",
+    "PREVIEW": "Vista Previa:",
+    "OPTIONS": "Opciones",
+    "OPTION_N": "Opción {{n}}",
+    "ADD_OPTION": "Agregar Opción",
+    "PAIRS": "Pares (Relacionar izquierda y derecha)",
+    "LEFT_ITEM_N": "Elemento Izquierdo {{n}}",
+    "RIGHT_ITEM_N": "Elemento Derecho {{n}}",
+    "ADD_PAIR": "Agregar Par",
+    "OPEN_INFO": "Los estudiantes tendrán un cuadro de texto para escribir su respuesta. No requiere configuración extra.",
+    "SAVE": "Guardar Pregunta",
+    "SAVE_SUCCESS": "¡Pregunta guardada exitosamente!",
+    "SAVE_ERROR": "Error al guardar la pregunta."
+  },
+  "TEST_DESIGNER": {
+    "TITLE": "Diseñador de Exámenes",
+    "SUBTITLE": "Diseña las reglas del modelo para un nuevo examen",
+    "TEST_TITLE": "Título del Examen",
+    "TEST_TITLE_PH": "ej. Parcial de Historia 2026",
+    "DESC": "Descripción",
+    "DESC_PH": "Examen parcial cubriendo los capítulos 1-5",
+    "RULES_HEADER": "Reglas del Modelo",
+    "RULES_SUB": "Configura cómo debe generar el servidor las preguntas del examen.",
+    "TOPIC_OPTIONAL": "Tema (Opcional)",
+    "COUNT": "Cantidad",
+    "ADD_RULE": "Agregar Regla",
+    "SAVE": "Guardar Modelo",
+    "SAVE_SUCCESS": "¡Modelo de examen guardado exitosamente!",
+    "SAVE_ERROR": "Error al guardar el modelo de examen."
+  }
+}

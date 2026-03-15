@@ -1,27 +1,25 @@
-# SchoolTestApp
+# Zentia Secondary School Test App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+This is the front-end application for the Secondary School Test platform, proudly built with modern Angular (v17+) using Standalone Components and Angular Material.
 
-## Development server
+## How to Start Locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Open a terminal inside this directory (`school-test-app`)
+2. Run `npm install` to ensure all dependencies are resolved.
+3. Run `npm start` to spin up the local development server.
+4. Navigate to `http://localhost:4200` in your browser.
 
-## Code scaffolding
+## Features & UI Components
+- **Language Switcher (`i18n`)**: English and Spanish support toggled via the Top Navigation Bar.
+- **Authentication**: Simulated `AuthService` handling mock login and user state distribution. 
+- **Timer & Auto-Submit**: Configurable dynamic countdown logic based on the payload fetched that automatically submits the answers securely upon timeout.
+- **Review Later**: Let users mark questions explicitly to jump back to them via the Navigation dot-map.
+- **Question Types Hosted:**
+  - Multiple Choice
+  - Open Text Response
+  - Connect the Dots (Interactive matching)
+- **Question Designer**: Dedicated UI for teachers to create new questions, assign them to a course and topic, provide text using Markdown, and include reference images.
+- **Test Designer**: Dedicated UI for creating exam blueprints to define rules (e.g. how many questions per type/course/topic).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## API Contracts & Configuration details
+Full architectural decisions and REST JSON API Contracts have been registered and documented in the upper `AGENTS.md` file residing in the root workspace directory. All development to this specific directory must adhere to the `angularWebDev` skill detailed there.
