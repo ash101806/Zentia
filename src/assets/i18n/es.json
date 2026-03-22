@@ -9,13 +9,15 @@
   },
   "NAV": {
     "HOME": "Inicio",
+    "TAKE_EXAM": "Tomar Examen",
     "QUESTION_DESIGNER": "Diseñador de Preguntas",
     "TEST_DESIGNER": "Diseñador de Exámenes",
     "PREVIOUS": "Anterior",
     "NEXT": "Siguiente",
     "FINISH": "Terminar y Enviar",
     "QUESTION_X_OF_Y": "Pregunta {{current}} de {{total}}",
-    "LOGIN": "Iniciar Sesión"
+    "LOGIN": "Iniciar Sesión",
+    "RESULTS": "Resultados"
   },
   "FLAGS": {
     "MARK_REVIEW": "Marcar para revisar luego",
@@ -36,6 +38,28 @@
   },
   "OPEN_QUESTION": {
     "LABEL": "Tu respuesta"
+  },
+  "LOGIN": {
+    "TITLE": "Bienvenido a Zentia",
+    "SUBTITLE": "Inicia sesión para acceder a tu portal",
+    "USERNAME": "Usuario",
+    "PASSWORD": "Contraseña",
+    "SUBMIT_BTN": "Entrar"
+  },
+  "PROFILE": {
+    "LOGOUT_BTN": "Cerrar Sesión",
+    "EMAIL": "Correo Electrónico",
+    "ID": "ID de Cuenta",
+    "GRADE_CLASS": "Grado / Clase",
+    "ASSIGNED_CLASSES": "Clases Asignadas"
+  },
+  "TAKE_EXAM": {
+    "TITLE": "Tomar un Examen",
+    "SUBTITLE": "Portal del Estudiante",
+    "INSTRUCTION": "Ingresa el código único del examen proporcionado por tu profesor(a).",
+    "CODE_LABEL": "Código de Examen",
+    "CODE_PH": "ej. test-123",
+    "START_BTN": "Comenzar Examen"
   },
   "DESIGNER": {
     "Q_TITLE": "Diseñador de Preguntas",
@@ -60,24 +84,83 @@
     "RIGHT_ITEM_N": "Elemento Derecho {{n}}",
     "ADD_PAIR": "Agregar Par",
     "OPEN_INFO": "Los estudiantes tendrán un cuadro de texto para escribir su respuesta. No requiere configuración extra.",
+    "QLIST_TITLE": "Banco de Preguntas",
+    "QLIST_SUBTITLE": "Administra y actualiza tus preguntas disponibles",
+    "QLIST_ADD_NEW": "Crear Nueva",
+    "QLIST_TEXT": "Texto",
+    "QLIST_CREATED": "Creada Por",
+    "QLIST_UPDATED": "Actualizada Por",
+    "QLIST_ACTIONS": "Acciones",
+    "QLIST_EDIT": "Editar",
+    "QLIST_NO_DATA": "No se encontraron preguntas.",
+    "CREATED_BY": "Creada Por",
+    "UPDATED_BY": "Última Actualización Por",
     "SAVE": "Guardar Pregunta",
     "SAVE_SUCCESS": "¡Pregunta guardada exitosamente!",
-    "SAVE_ERROR": "Error al guardar la pregunta."
+    "SAVE_ERROR": "Error al guardar la pregunta.",
+    "UPLOAD_PHOTO": "Subir Foto",
+    "UPLOAD_SUCCESS": "¡Foto subida exitosamente!"
   },
   "TEST_DESIGNER": {
     "TITLE": "Diseñador de Exámenes",
-    "SUBTITLE": "Diseña las reglas del modelo para un nuevo examen",
+    "SUBTITLE": "Crea modelos de examen dinámicos o estáticos.",
     "TEST_TITLE": "Título del Examen",
     "TEST_TITLE_PH": "ej. Parcial de Historia 2026",
     "DESC": "Descripción",
-    "DESC_PH": "Examen parcial cubriendo los capítulos 1-5",
+    "DESC_PH": "Examen parcial que cubre los capítulos 1 al 5",
+    "TIME_LIMIT": "Tiempo Límite (Minutos)",
+    "TIME_LIMIT_PH": "ej. 60",
+    "TIME_LIMIT_HINT": "Tiempo que tienen los alumnos para terminar.",
+    "FIXED_QUESTIONS_HEADER": "Preguntas Fijas",
+    "FIXED_QUESTIONS_SUB": "Bloquea explícitamente preguntas específicas del Banco de Preguntas en este examen.",
+    "FIXED_QUESTIONS_LABEL": "Seleccionar Preguntas Fijas",
     "RULES_HEADER": "Reglas del Modelo",
-    "RULES_SUB": "Configura cómo debe generar el servidor las preguntas del examen.",
+    "RULES_SUB": "Configura cómo el backend debe generar las preguntas del examen para los estudiantes.",
     "TOPIC_OPTIONAL": "Tema (Opcional)",
     "COUNT": "Cantidad",
     "ADD_RULE": "Agregar Regla",
+    "TLIST_TITLE": "Modelos de Exámenes",
+    "TLIST_SUBTITLE": "Administra y define exámenes automáticos para estudiantes",
+    "TLIST_ADD_NEW": "Crear Nuevo Examen",
+    "TLIST_B_TITLE": "Título",
+    "TLIST_DESC": "Descripción",
+    "TLIST_CREATED": "Creado Por",
+    "TLIST_UPDATED": "Actualizado Por",
+    "TLIST_ACTIONS": "Acciones",
+    "TLIST_EDIT": "Editar Modelo",
+    "TLIST_NO_DATA": "No se encontraron modelos de examen.",
     "SAVE": "Guardar Modelo",
-    "SAVE_SUCCESS": "¡Modelo de examen guardado exitosamente!",
-    "SAVE_ERROR": "Error al guardar el modelo de examen."
+    "SAVE_SUCCESS": "¡Modelo de Prueba guardado exitosamente!",
+    "SAVE_ERROR": "Error al guardar el modelo."
+  },
+  "RESULTS": {
+    "TITLE": "Resultados de Alumnos",
+    "SUBTITLE": "Revisa y exporta el desempeño de los exámenes.",
+    "EXPORT_EXCEL": "Descargar Excel",
+    "FILTER_COURSE": "Filtrar por Curso",
+    "FILTER_GROUP": "Filtrar por Grupo",
+    "ALL": "Todos",
+    "COL_STUDENT": "Nombre del Alumno",
+    "COL_COURSE": "Curso",
+    "COL_GROUP": "Grupo",
+    "COL_TEST": "Título del Examen",
+    "COL_SCORE": "Calificación",
+    "NO_DATA": "No hay resultados que coincidan con estos filtros."
+  },
+  "SDASH": {
+    "NAV_LINK": "Mis Resultados",
+    "TITLE": "Portal del Estudiante",
+    "SUBTITLE": "Consulta tus próximos exámenes y tu historial de calificaciones.",
+    "UPCOMING_TAB": "Próximos Exámenes",
+    "HISTORY_TAB": "Historial de Exámenes",
+    "COL_EXAM": "Título del Examen",
+    "COL_COURSE": "Curso",
+    "COL_DATE": "Fecha Programada",
+    "COL_DURATION": "Duración",
+    "COL_SCORE": "Calificación",
+    "COL_SUBMITTED": "Fecha de Envío",
+    "BTN_START": "Comenzar Examen",
+    "NO_UPCOMING": "No tienes exámenes programados próximamente.",
+    "NO_HISTORY": "Aún no has completado ningún examen."
   }
 }

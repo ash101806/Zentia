@@ -8,8 +8,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, interval } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
+import { AuthService } from '../../services/auth.service';
 
 import { TestService } from '../../services/test.service';
 import { TestResponse, Question, Answer } from '../../models/question.model';
@@ -341,18 +343,32 @@ export class TestContainerComponent implements OnInit, OnDestroy {
 
   constructor(
     private testService: TestService,
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router,
     private dialog: MatDialog,
     private translateService: TranslateService
   ) {}
 
   ngOnInit() {
-    const testId = 'test-123'; // Mock ID
-    const studentId = 'student-456'; // Mock ID
+    const testId = this.route.snapshot.paramMap.get('id');
+    const user = this.authService.currentUserValue;
     
-    this.testService.getTest(testId, studentId).subscribe(data => {
-      this.testData = data;
-      this.timeLeft = data.timeLimitSeconds;
-      this.startTimer();
+    if (!testId || !user) {
+      this.router.navigate(['/take-exam']);
+      return;
+    }
+    
+    this.testService.getTest(testId, user.id).subscribe({
+      next: (data) => {
+        this.testData = data;
+        this.timeLeft = data.timeLimitSeconds;
+        this.startTimer();
+      },
+      error: () => {
+        alert(this.translateService.instant('TEST.NOT_FOUND_ERROR'));
+        this.router.navigate(['/take-exam']);
+      }
     });
   }
 

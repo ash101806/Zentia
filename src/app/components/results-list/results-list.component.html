@@ -1,0 +1,84 @@
+<div class="results-container">
+  <mat-card class="results-card">
+    <mat-card-header class="results-header">
+      <mat-card-title>{{ 'RESULTS.TITLE' | translate }}</mat-card-title>
+      <mat-card-subtitle>{{ 'RESULTS.SUBTITLE' | translate }}</mat-card-subtitle>
+      
+      <div class="header-spacer"></div>
+      
+      <button mat-stroked-button color="primary" (click)="exportToCSV()" [disabled]="dataSource.data.length === 0">
+        <mat-icon>download</mat-icon> {{ 'RESULTS.EXPORT_EXCEL' | translate }}
+      </button>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Filter Controls -->
+      <div class="filter-controls">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'RESULTS.FILTER_COURSE' | translate }}</mat-label>
+          <mat-select [(value)]="selectedCourse" (selectionChange)="applyFilter()">
+            <mat-option value="">{{ 'RESULTS.ALL' | translate }}</mat-option>
+            <mat-option *ngFor="let c of uniqueCourses" [value]="c">{{ c }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'RESULTS.FILTER_GROUP' | translate }}</mat-label>
+          <mat-select [(value)]="selectedGroup" (selectionChange)="applyFilter()">
+            <mat-option value="">{{ 'RESULTS.ALL' | translate }}</mat-option>
+            <mat-option *ngFor="let g of uniqueGroups" [value]="g">{{ g }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-icon-button (click)="clearFilters()" *ngIf="selectedCourse || selectedGroup" matTooltip="Clear Filters">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </div>
+
+      <!-- Results Table -->
+      <div class="table-container mat-elevation-z2">
+        <table mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="studentName">
+            <th mat-header-cell *matHeaderCellDef>{{ 'RESULTS.COL_STUDENT' | translate }}</th>
+            <td mat-cell *matCellDef="let element"><strong>{{element.studentName}}</strong></td>
+          </ng-container>
+
+          <ng-container matColumnDef="course">
+            <th mat-header-cell *matHeaderCellDef>{{ 'RESULTS.COL_COURSE' | translate }}</th>
+            <td mat-cell *matCellDef="let element">{{element.course}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="group">
+            <th mat-header-cell *matHeaderCellDef>{{ 'RESULTS.COL_GROUP' | translate }}</th>
+            <td mat-cell *matCellDef="let element">{{element.group}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="testTitle">
+            <th mat-header-cell *matHeaderCellDef>{{ 'RESULTS.COL_TEST' | translate }}</th>
+            <td mat-cell *matCellDef="let element">{{element.testTitle}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="score">
+            <th mat-header-cell *matHeaderCellDef>{{ 'RESULTS.COL_SCORE' | translate }}</th>
+            <td mat-cell *matCellDef="let element" class="score-cell">
+              <div class="score-label">
+                <span>{{ element.score }} / {{ element.maxScore }}</span>
+                <span class="percentage-text">{{ element.percentage | number:'1.0-0' }}%</span>
+              </div>
+              <mat-progress-bar mode="determinate" [value]="element.percentage" [color]="getProgressBarColor(element.percentage)"></mat-progress-bar>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell empty-cell" colspan="5">{{ 'RESULTS.NO_DATA' | translate }}</td>
+          </tr>
+        </table>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

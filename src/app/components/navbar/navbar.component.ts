@@ -22,11 +22,15 @@ import { Observable } from 'rxjs';
 
       <div class="spacer"></div>
 
-      <nav class="nav-links">
-        <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">{{ 'NAV.HOME' | translate }}</a>
-        <a mat-button routerLink="/designer/questions" routerLinkActive="active-link">{{ 'NAV.QUESTION_DESIGNER' | translate }}</a>
-        <a mat-button routerLink="/designer/tests" routerLinkActive="active-link">{{ 'NAV.TEST_DESIGNER' | translate }}</a>
-      </nav>
+      <ng-container *ngIf="currentUser$ | async as user">
+        <nav class="nav-links">
+          <a *ngIf="user.role === 'STUDENT'" mat-button routerLink="/student/dashboard" routerLinkActive="active-link">{{ 'SDASH.NAV_LINK' | translate }}</a>
+          <a *ngIf="user.role === 'STUDENT'" mat-button routerLink="/take-exam" routerLinkActive="active-link">{{ 'NAV.TAKE_EXAM' | translate }}</a>
+          <a *ngIf="user.role === 'TEACHER'" mat-button routerLink="/designer/questions" routerLinkActive="active-link">{{ 'NAV.QUESTION_DESIGNER' | translate }}</a>
+          <a *ngIf="user.role === 'TEACHER'" mat-button routerLink="/designer/tests" routerLinkActive="active-link">{{ 'NAV.TEST_DESIGNER' | translate }}</a>
+          <a *ngIf="user.role === 'TEACHER'" mat-button routerLink="/designer/results" routerLinkActive="active-link">{{ 'NAV.RESULTS' | translate }}</a>
+        </nav>
+      </ng-container>
 
       <div class="spacer"></div>
 
@@ -44,13 +48,13 @@ import { Observable } from 'rxjs';
           <span class="user-name">{{ user.name }}</span>
           <span class="user-role">{{ user.role }}</span>
         </div>
-        <button mat-icon-button matTooltip="Logout" (click)="logout()">
-          <mat-icon>exit_to_app</mat-icon>
+        <button mat-icon-button matTooltip="Profile" routerLink="/profile">
+          <mat-icon>settings</mat-icon>
         </button>
       </div>
 
       <ng-template #loginView>
-        <button mat-stroked-button color="accent" class="login-btn" (click)="simulateLogin()">
+        <button mat-stroked-button color="accent" class="login-btn" routerLink="/login">
           {{ 'NAV.LOGIN' | translate }}
         </button>
       </ng-template>
@@ -169,11 +173,5 @@ export class NavbarComponent implements OnInit {
     this.translate.use(lang);
   }
 
-  simulateLogin() {
-    this.authService.login('student1', 'password123').subscribe();
-  }
-
-  logout() {
-    this.authService.logout();
-  }
+  // simulateLogin and logout removed as they are handled by dedicated routes/components now
 }

@@ -8,6 +8,8 @@ export interface BaseQuestion {
   topic?: string;
   imageUrl?: string;
   markdownContent?: string;
+  createdByName?: string;
+  updatedByName?: string;
 }
 
 export interface ChoiceOption {
@@ -92,5 +94,9 @@ export interface TestBlueprint {
   id: string;
   title: string;
   description: string;
+  timeLimitSeconds?: number;
   rules: TestBlueprintRule[];
+  fixedQuestionIds?: string[];
+  createdByName?: string;
+  updatedByName?: string;
 }

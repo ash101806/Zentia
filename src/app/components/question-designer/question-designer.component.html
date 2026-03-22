@@ -1,9 +1,27 @@
 <div class="designer-container">
   <mat-card class="designer-card">
-    <mat-card-header>
-      <mat-card-title>{{ 'DESIGNER.Q_TITLE' | translate }}</mat-card-title>
-      <mat-card-subtitle>{{ 'DESIGNER.Q_SUBTITLE' | translate }}</mat-card-subtitle>
+    <mat-card-header class="designer-header flex-header">
+      <div class="header-title-group" style="display: flex; align-items: center; gap: 16px;">
+        <button mat-icon-button (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div>
+          <mat-card-title>{{ 'DESIGNER.Q_TITLE' | translate }}</mat-card-title>
+          <mat-card-subtitle>{{ 'DESIGNER.Q_SUBTITLE' | translate }}</mat-card-subtitle>
+        </div>
+      </div>
     </mat-card-header>
+
+    <div class="metadata-banner" *ngIf="editingQuestionId && loadedQuestion">
+      <div class="meta-item">
+        <mat-icon>person</mat-icon>
+        <span><strong>{{ 'DESIGNER.CREATED_BY' | translate }}:</strong> {{ loadedQuestion.createdByName || '-' }}</span>
+      </div>
+      <div class="meta-item">
+        <mat-icon>edit_calendar</mat-icon>
+        <span><strong>{{ 'DESIGNER.UPDATED_BY' | translate }}:</strong> {{ loadedQuestion.updatedByName || '-' }}</span>
+      </div>
+    </div>
 
     <mat-card-content>
       <form [formGroup]="questionForm" class="question-form">
@@ -38,10 +56,16 @@
           <input matInput formControlName="text" [placeholder]="'DESIGNER.PROMPT_PLACEHOLDER' | translate">
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>{{ 'DESIGNER.IMAGE_LABEL' | translate }}</mat-label>
-          <input matInput formControlName="imageUrl" placeholder="https://example.com/image.png">
-        </mat-form-field>
+        <div class="image-upload-row" style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
+          <mat-form-field appearance="outline" class="flex-1" style="flex: 1; margin-bottom: 0;">
+            <mat-label>{{ 'DESIGNER.IMAGE_LABEL' | translate }}</mat-label>
+            <input matInput formControlName="imageUrl" placeholder="https://example.com/image.png">
+          </mat-form-field>
+          <button mat-stroked-button color="accent" type="button" (click)="fileInput.click()">
+            <mat-icon>upload</mat-icon> {{ 'DESIGNER.UPLOAD_PHOTO' | translate }}
+          </button>
+          <input type="file" #fileInput accept="image/*" style="display: none;" (change)="onFileSelected($event)">
+        </div>
 
         <div class="markdown-section">
           <mat-form-field appearance="outline" class="full-width">

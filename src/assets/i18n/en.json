@@ -9,13 +9,15 @@
   },
   "NAV": {
     "HOME": "Home",
+    "TAKE_EXAM": "Take Exam",
     "QUESTION_DESIGNER": "Question Designer",
     "TEST_DESIGNER": "Test Designer",
     "PREVIOUS": "Previous",
     "NEXT": "Next",
     "FINISH": "Finish & Submit",
     "QUESTION_X_OF_Y": "Question {{current}} of {{total}}",
-    "LOGIN": "Log In"
+    "LOGIN": "Log In",
+    "RESULTS": "Results & Submissions"
   },
   "FLAGS": {
     "MARK_REVIEW": "Mark to Review Later",
@@ -36,6 +38,28 @@
   },
   "OPEN_QUESTION": {
     "LABEL": "Your answer"
+  },
+  "LOGIN": {
+    "TITLE": "Welcome to Zentia",
+    "SUBTITLE": "Sign in to access your portal",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "SUBMIT_BTN": "Sign In"
+  },
+  "PROFILE": {
+    "LOGOUT_BTN": "Log Out",
+    "EMAIL": "Email",
+    "ID": "Account ID",
+    "GRADE_CLASS": "Grade Class",
+    "ASSIGNED_CLASSES": "Assigned Classes"
+  },
+  "TAKE_EXAM": {
+    "TITLE": "Take an Exam",
+    "SUBTITLE": "Student Portal",
+    "INSTRUCTION": "Enter your unique exam code provided by your teacher.",
+    "CODE_LABEL": "Exam Code",
+    "CODE_PH": "e.g. test-123",
+    "START_BTN": "Start Exam"
   },
   "DESIGNER": {
     "Q_TITLE": "Question Designer",
@@ -60,24 +84,83 @@
     "RIGHT_ITEM_N": "Right Item {{n}}",
     "ADD_PAIR": "Add Pair",
     "OPEN_INFO": "Students will be provided a text box to write their answer. No extra configuration needed.",
+    "QLIST_TITLE": "Question Bank",
+    "QLIST_SUBTITLE": "Manage and update your available questions",
+    "QLIST_ADD_NEW": "Create New",
+    "QLIST_TEXT": "Text",
+    "QLIST_CREATED": "Created By",
+    "QLIST_UPDATED": "Updated By",
+    "QLIST_ACTIONS": "Actions",
+    "QLIST_EDIT": "Edit",
+    "QLIST_NO_DATA": "No questions found.",
+    "CREATED_BY": "Created By",
+    "UPDATED_BY": "Last Updated By",
     "SAVE": "Save Question",
     "SAVE_SUCCESS": "Question saved successfully!",
-    "SAVE_ERROR": "Error saving question."
+    "SAVE_ERROR": "Error saving question.",
+    "UPLOAD_PHOTO": "Upload Photo",
+    "UPLOAD_SUCCESS": "Photo uploaded successfully!"
   },
   "TEST_DESIGNER": {
     "TITLE": "Test Designer",
-    "SUBTITLE": "Design the blueprint rules for a new student exam",
+    "SUBTITLE": "Create dynamic or static exam blueprints.",
     "TEST_TITLE": "Test Title",
     "TEST_TITLE_PH": "e.g. History Midterm 2026",
     "DESC": "Description",
     "DESC_PH": "Midterm exam covering chapters 1-5",
+    "TIME_LIMIT": "Time Limit (Minutes)",
+    "TIME_LIMIT_PH": "e.g. 60",
+    "TIME_LIMIT_HINT": "How much time students have to finish.",
+    "FIXED_QUESTIONS_HEADER": "Fixed Questions",
+    "FIXED_QUESTIONS_SUB": "Explicitly lock specific questions from the Question Bank to this exam.",
+    "FIXED_QUESTIONS_LABEL": "Select Fixed Questions",
     "RULES_HEADER": "Blueprint Rules",
     "RULES_SUB": "Configure how the backend should generate the exam questions for students.",
     "TOPIC_OPTIONAL": "Topic (Optional)",
     "COUNT": "Count",
     "ADD_RULE": "Add Rule",
+    "TLIST_TITLE": "Exam Blueprints",
+    "TLIST_SUBTITLE": "Manage and define automated tests for students",
+    "TLIST_ADD_NEW": "Create New Exam",
+    "TLIST_B_TITLE": "Title",
+    "TLIST_DESC": "Description",
+    "TLIST_CREATED": "Created By",
+    "TLIST_UPDATED": "Updated By",
+    "TLIST_ACTIONS": "Actions",
+    "TLIST_EDIT": "Edit Blueprint",
+    "TLIST_NO_DATA": "No exam blueprints found.",
     "SAVE": "Save Test Blueprint",
     "SAVE_SUCCESS": "Test Blueprint saved successfully!",
     "SAVE_ERROR": "Error saving blueprint."
+  },
+  "RESULTS": {
+    "TITLE": "Teacher Results Dashboard",
+    "SUBTITLE": "Review and export student examination results.",
+    "EXPORT_EXCEL": "Download Excel",
+    "FILTER_COURSE": "Filter by Course",
+    "FILTER_GROUP": "Filter by Group",
+    "ALL": "All",
+    "COL_STUDENT": "Student Name",
+    "COL_COURSE": "Course",
+    "COL_GROUP": "Group",
+    "COL_TEST": "Test Title",
+    "COL_SCORE": "Score",
+    "NO_DATA": "No results match the selected filters."
+  },
+  "SDASH": {
+    "NAV_LINK": "My Results",
+    "TITLE": "Student Dashboard",
+    "SUBTITLE": "View your upcoming exams and past results.",
+    "UPCOMING_TAB": "Upcoming Exams",
+    "HISTORY_TAB": "Exam History",
+    "COL_EXAM": "Exam Title",
+    "COL_COURSE": "Course",
+    "COL_DATE": "Scheduled Date",
+    "COL_DURATION": "Duration",
+    "COL_SCORE": "Score",
+    "COL_SUBMITTED": "Date Submitted",
+    "BTN_START": "Start Exam",
+    "NO_UPCOMING": "You have no upcoming exams scheduled.",
+    "NO_HISTORY": "You haven't completed any exams yet."
   }
 }

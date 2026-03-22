@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { parse } from 'marked';
 
@@ -53,6 +54,11 @@ export class QuestionDesignerComponent implements OnInit {
   ];
 
   parsedMarkdown: SafeHtml = '';
+  editingQuestionId: string | null = null;
+  loadedQuestion: Question | null = null;
+  
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.initForm();
@@ -77,6 +83,51 @@ export class QuestionDesignerComponent implements OnInit {
         this.parsedMarkdown = '';
       }
     });
+
+    this.editingQuestionId = this.route.snapshot.paramMap.get('id');
+    if (this.editingQuestionId) {
+      this.designerService.getQuestion(this.editingQuestionId).subscribe(q => {
+        if (q) {
+          this.loadedQuestion = q;
+          this.patchFormWithQuestion(q);
+        } else {
+          this.snackBar.open('Question not found', 'Close');
+          this.router.navigate(['/designer/questions']);
+        }
+      });
+    }
+  }
+
+  private patchFormWithQuestion(q: Question) {
+    this.updateFormStructure(q.type);
+    
+    this.questionForm.patchValue({
+      type: q.type,
+      text: q.text,
+      course: q.course || '',
+      topic: q.topic || '',
+      imageUrl: q.imageUrl || '',
+      markdownContent: q.markdownContent || ''
+    });
+
+    if (q.type === 'MULTIPLE_CHOICE' && 'options' in q) {
+      this.options.clear();
+      q.options.forEach(opt => {
+        this.options.push(this.fb.group({
+          id: [opt.id],
+          text: [opt.text, Validators.required]
+        }));
+      });
+    } else if (q.type === 'CONNECT_DOTS' && 'leftItems' in q) {
+      this.leftItems.clear();
+      this.rightItems.clear();
+      q.leftItems.forEach(item => {
+        this.leftItems.push(this.fb.group({ id: [item.id], text: [item.text, Validators.required] }));
+      });
+      q.rightItems.forEach(item => {
+        this.rightItems.push(this.fb.group({ id: [item.id], text: [item.text, Validators.required] }));
+      });
+    }
   }
 
   private initForm(): void {
@@ -175,10 +226,14 @@ export class QuestionDesignerComponent implements OnInit {
   onSubmit(): void {
     if (this.questionForm.valid) {
       const questionData: Question = this.questionForm.value;
+      if (this.editingQuestionId) {
+        questionData.id = this.editingQuestionId; 
+      }
+
       this.designerService.saveQuestion(questionData).subscribe({
         next: (saved) => {
           this.snackBar.open(this.translate.instant('DESIGNER.SAVE_SUCCESS'), 'Close', { duration: 3000 });
-          this.questionForm.reset({ type: questionData.type, course: questionData.course, topic: questionData.topic });
+          this.router.navigate(['/designer/questions']);
         },
         error: () => {
           this.snackBar.open(this.translate.instant('DESIGNER.SAVE_ERROR'), 'Close', { duration: 3000 });
@@ -187,5 +242,23 @@ export class QuestionDesignerComponent implements OnInit {
     } else {
       this.questionForm.markAllAsTouched();
     }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64String = reader.result as string;
+        this.questionForm.patchValue({ imageUrl: base64String });
+        this.snackBar.open(this.translate.instant('DESIGNER.UPLOAD_SUCCESS'), 'Close', { duration: 3000 });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  goBack(): void {
+    this.router.navigate(['/designer/questions']);
   }
 }

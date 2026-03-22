@@ -3,6 +3,8 @@ export interface User {
   name: string;
   email: string;
   role: 'STUDENT' | 'TEACHER' | 'ADMIN';
+  gradeClass?: string;
+  assignedClasses?: string[];
 }
 
 export interface AuthResponse {
