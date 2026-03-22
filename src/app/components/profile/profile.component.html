@@ -1,0 +1,31 @@
+<div class="profile-container" *ngIf="user$ | async as user">
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-avatar"></div>
+      <mat-card-title>{{ user.name }}</mat-card-title>
+      <mat-card-subtitle>{{ user.role }}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content class="content-body">
+      <p><strong>{{ 'PROFILE.EMAIL' | translate }}:</strong> {{ user.email }}</p>
+      <p><strong>{{ 'PROFILE.ID' | translate }}:</strong> {{ user.id }}</p>
+      
+      <ng-container *ngIf="user.role === 'STUDENT' && user.gradeClass">
+        <p><strong>{{ 'PROFILE.GRADE_CLASS' | translate }}:</strong> {{ user.gradeClass }}</p>
+      </ng-container>
+
+      <ng-container *ngIf="user.role === 'TEACHER' && user.assignedClasses?.length">
+        <p class="classes-label"><strong>{{ 'PROFILE.ASSIGNED_CLASSES' | translate }}:</strong></p>
+        <mat-chip-set class="classes-chip-set">
+          <mat-chip *ngFor="let cls of user.assignedClasses" color="primary" selected>{{ cls }}</mat-chip>
+        </mat-chip-set>
+      </ng-container>
+    </mat-card-content>
+    
+    <mat-card-actions align="end">
+      <button mat-flat-button color="warn" (click)="logout()">
+        {{ 'PROFILE.LOGOUT_BTN' | translate }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

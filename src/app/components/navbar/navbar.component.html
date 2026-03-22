@@ -1,1 +1,5 @@
-<p>navbar works!</p>
+<div class="nav-links" *ngIf="user()?.role === 'TEACHER'">
+      <button mat-button routerLink="/designer/questions" routerLinkActive="active-link">{{ 'NAV.Q_DESIGNER' | translate }}</button>
+      <button mat-button routerLink="/designer/tests" routerLinkActive="active-link">{{ 'NAV.TEST_DESIGNER' | translate }}</button>
+      <button mat-button routerLink="/designer/results" routerLinkActive="active-link">{{ 'NAV.RESULTS' | translate }}</button>
+    </div>

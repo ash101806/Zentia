@@ -1,9 +1,27 @@
 <div class="designer-container">
   <mat-card class="designer-card">
-    <mat-card-header>
-      <mat-card-title>{{ 'TEST_DESIGNER.TITLE' | translate }}</mat-card-title>
-      <mat-card-subtitle>{{ 'TEST_DESIGNER.SUBTITLE' | translate }}</mat-card-subtitle>
+    <mat-card-header class="designer-header flex-header">
+      <div>
+        <mat-card-title>{{ 'TEST_DESIGNER.TITLE' | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ 'TEST_DESIGNER.SUBTITLE' | translate }}</mat-card-subtitle>
+      </div>
+      <div class="header-actions">
+        <button mat-icon-button type="button" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
     </mat-card-header>
+
+    <div class="metadata-banner" *ngIf="editingTestId && loadedTest">
+      <div class="meta-item">
+        <mat-icon>person</mat-icon>
+        <span><strong>{{ 'DESIGNER.CREATED_BY' | translate }}:</strong> {{ loadedTest.createdByName || '-' }}</span>
+      </div>
+      <div class="meta-item">
+        <mat-icon>edit_calendar</mat-icon>
+        <span><strong>{{ 'DESIGNER.UPDATED_BY' | translate }}:</strong> {{ loadedTest.updatedByName || '-' }}</span>
+      </div>
+    </div>
 
     <mat-card-content>
       <form [formGroup]="blueprintForm" class="blueprint-form">
@@ -16,6 +34,30 @@
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>{{ 'TEST_DESIGNER.DESC' | translate }}</mat-label>
           <textarea matInput formControlName="description" rows="3" [placeholder]="'TEST_DESIGNER.DESC_PH' | translate"></textarea>
+        </mat-form-field>
+
+        <div class="time-limit-container" style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+          <mat-form-field appearance="outline" style="width: 250px; margin-bottom: 0;">
+            <mat-label>{{ 'TEST_DESIGNER.TIME_LIMIT' | translate }}</mat-label>
+            <input matInput formControlName="timeLimitMinutes" type="number" [placeholder]="'TEST_DESIGNER.TIME_LIMIT_PH' | translate">
+          </mat-form-field>
+          <span class="text-muted" style="color: #666; margin-bottom: 22px;">
+            {{ 'TEST_DESIGNER.TIME_LIMIT_HINT' | translate }}
+          </span>
+        </div>
+
+        <mat-divider class="my-3"></mat-divider>
+        <h3 class="rules-header">{{ 'TEST_DESIGNER.FIXED_QUESTIONS_HEADER' | translate }}</h3>
+        <p class="rules-subheader">{{ 'TEST_DESIGNER.FIXED_QUESTIONS_SUB' | translate }}</p>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'TEST_DESIGNER.FIXED_QUESTIONS_LABEL' | translate }}</mat-label>
+          <mat-select formControlName="fixedQuestionIds" multiple>
+            <mat-option *ngFor="let q of availableQuestions" [value]="q.id">
+              {{ q.text }} 
+              <span class="text-muted">({{ q.type | translate }} - {{ q.course || 'Any' }})</span>
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-divider class="my-3"></mat-divider>

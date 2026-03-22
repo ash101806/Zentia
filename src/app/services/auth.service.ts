@@ -24,13 +24,18 @@ export class AuthService {
 
   // Simulated login based on our API Contracts
   login(username: string, password: string): Observable<AuthResponse> {
+    const isTeacher = username.toLowerCase() === 'teacher';
+    
     const mockResponse: AuthResponse = {
-      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+      token: isTeacher ? 'teacher_token_123' : 'student_token_123',
       user: {
-        id: 'student-456',
-        name: 'Jane Doe',
-        email: 'jane.doe@school.edu',
-        role: 'STUDENT'
+        id: isTeacher ? 'teacher-888' : 'student-456',
+        name: isTeacher ? 'Mr. Teacher' : 'Jane Doe',
+        email: isTeacher ? 'teacher@school.edu' : 'jane.doe@school.edu',
+        role: isTeacher ? 'TEACHER' : 'STUDENT',
+        ...(isTeacher 
+          ? { assignedClasses: ['Math 3rd grade', 'Science 3rd grade'] }
+          : { gradeClass: '3rd grade' })
       }
     };
 
